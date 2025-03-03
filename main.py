@@ -1,26 +1,31 @@
 import sys
 from PyQt6 import uic
-from PyQt6.QtWidgets import QMainWindow, QApplication
+from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox
 
 class SpaceRoom(QMainWindow):
     def __init__(self):
         super(SpaceRoom, self).__init__()
         uic.loadUi("juego.ui", self)
 
-        #! Nombre de la aplicación en la ventana
-        self.setWindowTitle("Space Room")
+        # Conectar el botón de inicio de sesión
+        self.button_login.clicked.connect(self.handle_login)
 
-        #! Agregar datos de prueba
-        self.label_frase_profesor.setText("El profesor dice: Piensa bien antes de responder.")
-        self.label_acertijo.setText("¿Qué tiene un ojo pero no puede ver?")
-        self.label_respuesta.setText("Respuesta: ???")
-        self.btn_pist.setText("Mostrar pista")
+    def handle_login(self):
+        correo = self.input_correo.text().strip()
+        contrasena = self.input_contrasena.text().strip()
 
-        #! Conectar el botón a una función
-        self.btn_pist.clicked.connect(self.mostrar_pista)
+        if not correo or not contrasena:
+            self.show_error("Por favor, ingrese todos los datos")
+            return
 
-    def mostrar_pista(self):
-        self.label_respuesta.setText("Pista: Se usa para coser.")
+        print(f"Login con: {correo}, {contrasena}")
+
+    def show_error(self, message):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Icon.Critical)
+        msg.setWindowTitle("Error")
+        msg.setText(message)
+        msg.exec()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
