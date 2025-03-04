@@ -95,7 +95,7 @@
     background: transparent;
 }</string>
      </property>
-     <widget class="QGroupBox" name="groupBox">
+     <widget class="QGroupBox" name="groupBox_login">
       <property name="geometry">
        <rect>
         <x>380</x>
@@ -240,7 +240,7 @@ QPushButton:hover {
     background: transparent;
 }</string>
      </property>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QGroupBox" name="groupBox_register">
       <property name="geometry">
        <rect>
         <x>380</x>
@@ -251,7 +251,7 @@ QPushButton:hover {
       </property>
       <property name="font">
        <font>
-        <pointsize>26</pointsize>
+        <pointsize>1</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -264,7 +264,6 @@ QPushButton:hover {
 
 QLabel {
     color: white; 
-    font-size: 14px;
     font-weight: bold;
 }
 
@@ -303,7 +302,6 @@ QPushButton:hover {
        </property>
        <property name="font">
         <font>
-         <pointsize>-1</pointsize>
          <bold>true</bold>
         </font>
        </property>
