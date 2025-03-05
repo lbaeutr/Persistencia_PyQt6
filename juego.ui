@@ -63,7 +63,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>resources/images/background/backgroundLogin.png</pixmap>
+     <pixmap>resources/images/background/Wave.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -87,7 +87,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -400,6 +400,65 @@ QPushButton:hover {
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="gestion">
+     <property name="styleSheet">
+      <string notr="true">QWidget {
+    background: transparent;
+}</string>
+     </property>
+     <widget class="QPushButton" name="crearPregunta">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>200</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Crear Pregunta</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="eliminarPregunta">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>250</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Eliminar Pregunta</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="actualizarPregunta">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>300</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Actualizar Pregunta</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="listarPreguntas">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>350</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Listar Preguntas</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="Juego">
      <property name="styleSheet">
       <string notr="true">QWidget {
@@ -427,9 +486,9 @@ QPushButton:hover {
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>70</y>
-        <width>101</width>
+        <x>150</x>
+        <y>100</y>
+        <width>111</width>
         <height>111</height>
        </rect>
       </property>
@@ -439,7 +498,13 @@ QPushButton:hover {
 }</string>
       </property>
       <property name="text">
-       <string>Foto</string>
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>resources/images/background/Imagen de WhatsApp 2025-03-05 a las 17.53.39_336876c6.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit">
