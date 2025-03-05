@@ -189,6 +189,36 @@ class Ui_MainWindow(object):
         self.input_repeatContra.setObjectName(u"input_repeatContra")
         self.input_repeatContra.setGeometry(QRect(50, 210, 331, 31))
         self.stackedWidget.addWidget(self.register_2)
+        self.Juego = QWidget()
+        self.Juego.setObjectName(u"Juego")
+        self.Juego.setStyleSheet(u"QWidget {\n"
+"    background: transparent;\n"
+"}")
+        self.label = QLabel(self.Juego)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(280, 30, 811, 111))
+        self.label.setStyleSheet(u"QLabel {\n"
+"    background: white;\n"
+"}")
+        self.label_2 = QLabel(self.Juego)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(120, 70, 101, 111))
+        self.label_2.setStyleSheet(u"QLabel {\n"
+"    background: white;\n"
+"}")
+        self.lineEdit = QLineEdit(self.Juego)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setGeometry(QRect(280, 590, 721, 51))
+        self.lineEdit.setStyleSheet(u"QLineEdit {\n"
+"    background: white;\n"
+"}")
+        self.pushButton = QPushButton(self.Juego)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(1030, 600, 75, 31))
+        self.pushButton.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"}")
+        self.stackedWidget.addWidget(self.Juego)
         self.principalUsuario = QWidget()
         self.principalUsuario.setObjectName(u"principalUsuario")
         self.principalUsuario.setStyleSheet(u"QWidget {\n"
@@ -226,7 +256,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -246,6 +276,10 @@ class Ui_MainWindow(object):
         self.button_register.setText(QCoreApplication.translate("MainWindow", u"Registrar", None))
         self.login_enlace.setText(QCoreApplication.translate("MainWindow", u"\u00bfYa tienes cuenta? Inicia sesion", None))
         self.contrasena_label_3.setText(QCoreApplication.translate("MainWindow", u"Repite contrase\u00f1a", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Pregunta", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Foto", None))
+        self.lineEdit.setText(QCoreApplication.translate("MainWindow", u"Respuesta", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
         self.buttonFacil.setText(QCoreApplication.translate("MainWindow", u"F\u00e1cil", None))
         self.buttonNormal.setText(QCoreApplication.translate("MainWindow", u"Normal", None))
         self.buttonDificil.setText(QCoreApplication.translate("MainWindow", u"Dif\u00edcil", None))
