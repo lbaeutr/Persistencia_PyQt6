@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'juego.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -92,7 +92,6 @@ class Ui_MainWindow(object):
         self.correo_label.setObjectName(u"correo_label")
         self.correo_label.setGeometry(QRect(50, 40, 181, 16))
         font1 = QFont()
-        font1.setPointSize(1)
         font1.setBold(True)
         self.correo_label.setFont(font1)
         self.contrasena_label = QLabel(self.groupBox_login)
@@ -162,9 +161,7 @@ class Ui_MainWindow(object):
         self.correo_label_2 = QLabel(self.groupBox_register)
         self.correo_label_2.setObjectName(u"correo_label_2")
         self.correo_label_2.setGeometry(QRect(50, 40, 181, 16))
-        font3 = QFont()
-        font3.setBold(True)
-        self.correo_label_2.setFont(font3)
+        self.correo_label_2.setFont(font1)
         self.contrasena_label_2 = QLabel(self.groupBox_register)
         self.contrasena_label_2.setObjectName(u"contrasena_label_2")
         self.contrasena_label_2.setGeometry(QRect(50, 110, 111, 16))
@@ -192,11 +189,44 @@ class Ui_MainWindow(object):
         self.input_repeatContra.setObjectName(u"input_repeatContra")
         self.input_repeatContra.setGeometry(QRect(50, 210, 331, 31))
         self.stackedWidget.addWidget(self.register_2)
+        self.principalUsuario = QWidget()
+        self.principalUsuario.setObjectName(u"principalUsuario")
+        self.principalUsuario.setStyleSheet(u"QWidget {\n"
+"    background: transparent;\n"
+"}")
+        self.buttonFacil = QPushButton(self.principalUsuario)
+        self.buttonFacil.setObjectName(u"buttonFacil")
+        self.buttonFacil.setGeometry(QRect(520, 200, 151, 41))
+        self.buttonNormal = QPushButton(self.principalUsuario)
+        self.buttonNormal.setObjectName(u"buttonNormal")
+        self.buttonNormal.setGeometry(QRect(520, 260, 151, 41))
+        self.buttonDificil = QPushButton(self.principalUsuario)
+        self.buttonDificil.setObjectName(u"buttonDificil")
+        self.buttonDificil.setGeometry(QRect(520, 320, 151, 41))
+        self.stackedWidget.addWidget(self.principalUsuario)
+        self.principalAdmin = QWidget()
+        self.principalAdmin.setObjectName(u"principalAdmin")
+        self.principalAdmin.setStyleSheet(u"QWidget {\n"
+"    background: transparent;\n"
+"}")
+        self.buttonFacilAdmin = QPushButton(self.principalAdmin)
+        self.buttonFacilAdmin.setObjectName(u"buttonFacilAdmin")
+        self.buttonFacilAdmin.setGeometry(QRect(520, 200, 151, 41))
+        self.buttonNormalAdmin = QPushButton(self.principalAdmin)
+        self.buttonNormalAdmin.setObjectName(u"buttonNormalAdmin")
+        self.buttonNormalAdmin.setGeometry(QRect(520, 260, 151, 41))
+        self.buttonDificilAdmin = QPushButton(self.principalAdmin)
+        self.buttonDificilAdmin.setObjectName(u"buttonDificilAdmin")
+        self.buttonDificilAdmin.setGeometry(QRect(520, 320, 151, 41))
+        self.buttonGestion = QPushButton(self.principalAdmin)
+        self.buttonGestion.setObjectName(u"buttonGestion")
+        self.buttonGestion.setGeometry(QRect(520, 380, 151, 41))
+        self.stackedWidget.addWidget(self.principalAdmin)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -216,5 +246,12 @@ class Ui_MainWindow(object):
         self.button_register.setText(QCoreApplication.translate("MainWindow", u"Registrar", None))
         self.login_enlace.setText(QCoreApplication.translate("MainWindow", u"\u00bfYa tienes cuenta? Inicia sesion", None))
         self.contrasena_label_3.setText(QCoreApplication.translate("MainWindow", u"Repite contrase\u00f1a", None))
+        self.buttonFacil.setText(QCoreApplication.translate("MainWindow", u"F\u00e1cil", None))
+        self.buttonNormal.setText(QCoreApplication.translate("MainWindow", u"Normal", None))
+        self.buttonDificil.setText(QCoreApplication.translate("MainWindow", u"Dif\u00edcil", None))
+        self.buttonFacilAdmin.setText(QCoreApplication.translate("MainWindow", u"F\u00e1cil", None))
+        self.buttonNormalAdmin.setText(QCoreApplication.translate("MainWindow", u"Normal", None))
+        self.buttonDificilAdmin.setText(QCoreApplication.translate("MainWindow", u"Dif\u00edcil", None))
+        self.buttonGestion.setText(QCoreApplication.translate("MainWindow", u"Gesti\u00f3n", None))
     # retranslateUi
 

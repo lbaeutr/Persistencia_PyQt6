@@ -87,7 +87,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -398,6 +398,111 @@ QPushButton:hover {
         </rect>
        </property>
       </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="principalUsuario">
+     <property name="styleSheet">
+      <string notr="true">QWidget {
+    background: transparent;
+}</string>
+     </property>
+     <widget class="QPushButton" name="buttonFacil">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>200</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Fácil</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonNormal">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>260</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Normal</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonDificil">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>320</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Difícil</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="principalAdmin">
+     <property name="styleSheet">
+      <string notr="true">QWidget {
+    background: transparent;
+}</string>
+     </property>
+     <widget class="QPushButton" name="buttonFacilAdmin">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>200</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Fácil</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonNormalAdmin">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>260</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Normal</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonDificilAdmin">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>320</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Difícil</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonGestion">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>380</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestión</string>
+      </property>
      </widget>
     </widget>
    </widget>
