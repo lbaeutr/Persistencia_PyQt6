@@ -1,0 +1,35 @@
+Sistemas de Gestión Empresarial (Nivel Fácil)
+1.	¿Qué sigla representa la planificación de recursos empresariales? → ERP
+2.	¿Qué sistema gestiona clientes y ventas? → CRM
+3.	¿Qué sigla describe la cadena de suministro? → SCM
+4.	¿Qué módulo de un ERP se encarga de la contabilidad? → Finanzas
+5.	¿Qué sistema optimiza el control de almacenes? → WMS
+6.	¿Qué sigla identifica la planificación de producción? → MRP
+7.	¿Qué módulo administra las adquisiciones? → Compras
+8.	¿Qué sistema gestiona el capital humano? → HRMS
+9.	¿Qué sigla se asocia con la automatización de procesos? → BPM
+10.	¿Qué sistema facilita la gestión de proyectos? → PPM
+________________________________________
+PyQT6 (Nivel Medio)
+11.	¿Qué lenguaje se utiliza en PyQt6? → Python
+12.	¿Qué widget crea ventanas principales? → QMainWindow
+13.	¿Qué clase se usa para botones? → QPushButton
+14.	¿Qué objeto representa la aplicación? → QApplication
+15.	¿Qué widget permite ingresar texto? → QLineEdit
+16.	¿Qué módulo contiene los widgets básicos? → QtWidgets
+17.	¿Qué layout organiza de forma vertical? → QVBoxLayout
+18.	¿Qué widget muestra tablas? → QTableWidget
+19.	¿Qué componente gestiona eventos? → Signals
+20.	¿Qué herramienta diseña interfaces gráficas? → QtDesigner
+________________________________________
+C# (Nivel Difícil)
+21.	¿Qué palabra clave define una interfaz? → interface
+22.	¿Qué tipo de dato inmutable se usa para cadenas? → string
+23.	¿Qué símbolo se emplea para la herencia? → :
+24.	¿Qué colección evita elementos duplicados? → HashSet
+25.	¿Qué estructura funciona como una pila? → Stack
+26.	¿Cómo se conoce al recolector de basura? → GC
+27.	¿Qué palabra clave define un delegado? → delegate
+28.	¿Qué clase crea hilos en C#? → Thread
+29.	¿Qué espacio de nombres agrupa tareas asíncronas? → Tasks
+30.	¿Qué tipo de variable almacena direcciones de memoria? → pointer
