@@ -87,7 +87,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -99,7 +99,7 @@
       <property name="geometry">
        <rect>
         <x>380</x>
-        <y>210</y>
+        <y>310</y>
         <width>431</width>
         <height>281</height>
        </rect>
@@ -250,6 +250,25 @@ QPushButton:hover {
         <string>¿No tienes una cuenta? Regístrate aquí</string>
        </property>
       </widget>
+     </widget>
+     <widget class="QLabel" name="logo_4">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>100</y>
+        <width>181</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>resources/images/background/Logo.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="register_2">
