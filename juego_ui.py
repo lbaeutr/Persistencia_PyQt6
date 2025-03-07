@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
         self.label_background.setGeometry(QRect(0, 0, 1200, 700))
         self.label_background.setMinimumSize(QSize(1200, 700))
         self.label_background.setMaximumSize(QSize(1200, 700))
-        self.label_background.setPixmap(QPixmap(u"resources/images/background/backgroundLogin.png"))
+        self.label_background.setPixmap(QPixmap(u"resources/images/background/Wave.png"))
         self.label_background.setScaledContents(True)
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
@@ -94,9 +94,15 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setBold(True)
         self.correo_label.setFont(font1)
+        self.correo_label.setStyleSheet(u"QLabel {\n"
+"    color: black;\n"
+"}")
         self.contrasena_label = QLabel(self.groupBox_login)
         self.contrasena_label.setObjectName(u"contrasena_label")
         self.contrasena_label.setGeometry(QRect(50, 110, 111, 16))
+        self.contrasena_label.setStyleSheet(u"QLabel {\n"
+"    color: black;\n"
+"}")
         self.input_correo = QLineEdit(self.groupBox_login)
         self.input_correo.setObjectName(u"input_correo")
         self.input_correo.setGeometry(QRect(50, 70, 331, 31))
@@ -106,6 +112,12 @@ class Ui_MainWindow(object):
         self.button_login = QPushButton(self.groupBox_login)
         self.button_login.setObjectName(u"button_login")
         self.button_login.setGeometry(QRect(170, 190, 75, 31))
+        self.button_login.setStyleSheet(u"QPushButton {\n"
+"    background: #7CFC00;\n"
+"    border-radius: 10px;\n"
+"    border: 1px solid #6BBE00;\n"
+"    color: black;\n"
+"}")
         self.registro_enlace = QLabel(self.groupBox_login)
         self.registro_enlace.setObjectName(u"registro_enlace")
         self.registro_enlace.setGeometry(QRect(80, 230, 271, 20))
@@ -162,9 +174,15 @@ class Ui_MainWindow(object):
         self.correo_label_2.setObjectName(u"correo_label_2")
         self.correo_label_2.setGeometry(QRect(50, 40, 181, 16))
         self.correo_label_2.setFont(font1)
+        self.correo_label_2.setStyleSheet(u"QLabel {\n"
+"    color: black;\n"
+"}")
         self.contrasena_label_2 = QLabel(self.groupBox_register)
         self.contrasena_label_2.setObjectName(u"contrasena_label_2")
         self.contrasena_label_2.setGeometry(QRect(50, 110, 111, 16))
+        self.contrasena_label_2.setStyleSheet(u"QLabel {\n"
+"    color: black;\n"
+"}")
         self.input_correo_2 = QLineEdit(self.groupBox_register)
         self.input_correo_2.setObjectName(u"input_correo_2")
         self.input_correo_2.setGeometry(QRect(50, 70, 331, 31))
@@ -174,6 +192,12 @@ class Ui_MainWindow(object):
         self.button_register = QPushButton(self.groupBox_register)
         self.button_register.setObjectName(u"button_register")
         self.button_register.setGeometry(QRect(170, 250, 75, 31))
+        self.button_register.setStyleSheet(u"QPushButton {\n"
+"    background: #7CFC00;\n"
+"    border-radius: 10px;\n"
+"    border: 1px solid #6BBE00;\n"
+"    color: black;\n"
+"}")
         self.login_enlace = QLabel(self.groupBox_register)
         self.login_enlace.setObjectName(u"login_enlace")
         self.login_enlace.setGeometry(QRect(110, 290, 211, 20))
@@ -185,38 +209,107 @@ class Ui_MainWindow(object):
         self.contrasena_label_3 = QLabel(self.groupBox_register)
         self.contrasena_label_3.setObjectName(u"contrasena_label_3")
         self.contrasena_label_3.setGeometry(QRect(50, 180, 161, 16))
+        self.contrasena_label_3.setStyleSheet(u"QLabel {\n"
+"    color: black;\n"
+"}")
         self.input_repeatContra = QLineEdit(self.groupBox_register)
         self.input_repeatContra.setObjectName(u"input_repeatContra")
         self.input_repeatContra.setGeometry(QRect(50, 210, 331, 31))
         self.stackedWidget.addWidget(self.register_2)
+        self.gestion = QWidget()
+        self.gestion.setObjectName(u"gestion")
+        self.gestion.setStyleSheet(u"QWidget {\n"
+"    background: transparent;\n"
+"}")
+        self.crearPregunta = QPushButton(self.gestion)
+        self.crearPregunta.setObjectName(u"crearPregunta")
+        self.crearPregunta.setGeometry(QRect(500, 320, 181, 31))
+        self.crearPregunta.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
+        self.eliminarPregunta = QPushButton(self.gestion)
+        self.eliminarPregunta.setObjectName(u"eliminarPregunta")
+        self.eliminarPregunta.setGeometry(QRect(500, 370, 181, 31))
+        self.eliminarPregunta.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
+        self.actualizarPregunta = QPushButton(self.gestion)
+        self.actualizarPregunta.setObjectName(u"actualizarPregunta")
+        self.actualizarPregunta.setGeometry(QRect(500, 420, 181, 31))
+        self.actualizarPregunta.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
+        self.listarPreguntas = QPushButton(self.gestion)
+        self.listarPreguntas.setObjectName(u"listarPreguntas")
+        self.listarPreguntas.setGeometry(QRect(500, 470, 181, 31))
+        self.listarPreguntas.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
+        self.logo = QLabel(self.gestion)
+        self.logo.setObjectName(u"logo")
+        self.logo.setGeometry(QRect(498, 100, 181, 181))
+        self.logo.setPixmap(QPixmap(u"resources/images/background/Logo.png"))
+        self.logo.setScaledContents(True)
+        self.stackedWidget.addWidget(self.gestion)
         self.Juego = QWidget()
         self.Juego.setObjectName(u"Juego")
         self.Juego.setStyleSheet(u"QWidget {\n"
 "    background: transparent;\n"
 "}")
-        self.label = QLabel(self.Juego)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(280, 30, 811, 111))
-        self.label.setStyleSheet(u"QLabel {\n"
+        self.preunta = QLabel(self.Juego)
+        self.preunta.setObjectName(u"preunta")
+        self.preunta.setGeometry(QRect(280, 30, 811, 111))
+        self.preunta.setStyleSheet(u"QLabel {\n"
+"    background: white;\n"
+"    border-radius: 15px;\n"
+"    padding: 10px;\n"
+"    border: 1px solid #ccc;\n"
+"}\n"
+"")
+        self.foto = QLabel(self.Juego)
+        self.foto.setObjectName(u"foto")
+        self.foto.setGeometry(QRect(150, 100, 111, 111))
+        self.foto.setStyleSheet(u"QLabel {\n"
 "    background: white;\n"
 "}")
-        self.label_2 = QLabel(self.Juego)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(120, 70, 101, 111))
-        self.label_2.setStyleSheet(u"QLabel {\n"
+        self.foto.setPixmap(QPixmap(u"resources/images/background/Imagen de WhatsApp 2025-03-05 a las 17.53.39_336876c6.jpg"))
+        self.foto.setScaledContents(True)
+        self.respuesta = QLineEdit(self.Juego)
+        self.respuesta.setObjectName(u"respuesta")
+        self.respuesta.setGeometry(QRect(280, 590, 721, 51))
+        self.respuesta.setStyleSheet(u"QLineEdit {\n"
 "    background: white;\n"
-"}")
-        self.lineEdit = QLineEdit(self.Juego)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setGeometry(QRect(280, 590, 721, 51))
-        self.lineEdit.setStyleSheet(u"QLineEdit {\n"
-"    background: white;\n"
-"}")
-        self.pushButton = QPushButton(self.Juego)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(1030, 600, 75, 31))
-        self.pushButton.setStyleSheet(u"QPushButton {\n"
-"    background: white;\n"
+"    border-radius: 15px;\n"
+"    padding: 10px;\n"
+"    border: 1px solid #ccc;\n"
+"}\n"
+"")
+        self.enviar = QPushButton(self.Juego)
+        self.enviar.setObjectName(u"enviar")
+        self.enviar.setGeometry(QRect(1030, 600, 75, 31))
+        self.enviar.setStyleSheet(u"QPushButton {\n"
+"    background: #7CFC00;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px;\n"
+"    border: 1px solid #6BBE00;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
 "}")
         self.stackedWidget.addWidget(self.Juego)
         self.principalUsuario = QWidget()
@@ -226,13 +319,39 @@ class Ui_MainWindow(object):
 "}")
         self.buttonFacil = QPushButton(self.principalUsuario)
         self.buttonFacil.setObjectName(u"buttonFacil")
-        self.buttonFacil.setGeometry(QRect(520, 200, 151, 41))
+        self.buttonFacil.setGeometry(QRect(500, 320, 181, 31))
+        self.buttonFacil.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
         self.buttonNormal = QPushButton(self.principalUsuario)
         self.buttonNormal.setObjectName(u"buttonNormal")
-        self.buttonNormal.setGeometry(QRect(520, 260, 151, 41))
+        self.buttonNormal.setGeometry(QRect(500, 370, 181, 31))
+        self.buttonNormal.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
         self.buttonDificil = QPushButton(self.principalUsuario)
         self.buttonDificil.setObjectName(u"buttonDificil")
-        self.buttonDificil.setGeometry(QRect(520, 320, 151, 41))
+        self.buttonDificil.setGeometry(QRect(500, 420, 181, 31))
+        self.buttonDificil.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
+        self.logo_3 = QLabel(self.principalUsuario)
+        self.logo_3.setObjectName(u"logo_3")
+        self.logo_3.setGeometry(QRect(498, 100, 181, 181))
+        self.logo_3.setPixmap(QPixmap(u"resources/images/background/Logo.png"))
+        self.logo_3.setScaledContents(True)
         self.stackedWidget.addWidget(self.principalUsuario)
         self.principalAdmin = QWidget()
         self.principalAdmin.setObjectName(u"principalAdmin")
@@ -241,22 +360,55 @@ class Ui_MainWindow(object):
 "}")
         self.buttonFacilAdmin = QPushButton(self.principalAdmin)
         self.buttonFacilAdmin.setObjectName(u"buttonFacilAdmin")
-        self.buttonFacilAdmin.setGeometry(QRect(520, 200, 151, 41))
+        self.buttonFacilAdmin.setGeometry(QRect(500, 320, 181, 31))
+        self.buttonFacilAdmin.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
         self.buttonNormalAdmin = QPushButton(self.principalAdmin)
         self.buttonNormalAdmin.setObjectName(u"buttonNormalAdmin")
-        self.buttonNormalAdmin.setGeometry(QRect(520, 260, 151, 41))
+        self.buttonNormalAdmin.setGeometry(QRect(500, 370, 181, 31))
+        self.buttonNormalAdmin.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
         self.buttonDificilAdmin = QPushButton(self.principalAdmin)
         self.buttonDificilAdmin.setObjectName(u"buttonDificilAdmin")
-        self.buttonDificilAdmin.setGeometry(QRect(520, 320, 151, 41))
+        self.buttonDificilAdmin.setGeometry(QRect(500, 420, 181, 31))
+        self.buttonDificilAdmin.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
         self.buttonGestion = QPushButton(self.principalAdmin)
         self.buttonGestion.setObjectName(u"buttonGestion")
-        self.buttonGestion.setGeometry(QRect(520, 380, 151, 41))
+        self.buttonGestion.setGeometry(QRect(500, 470, 181, 31))
+        self.buttonGestion.setStyleSheet(u"QPushButton {\n"
+"    background: white;\n"
+"    border-radius: 10px;\n"
+"    border: 1px;\n"
+"    color: black;\n"
+"    font-weight: bold;\n"
+"}")
+        self.logo_2 = QLabel(self.principalAdmin)
+        self.logo_2.setObjectName(u"logo_2")
+        self.logo_2.setGeometry(QRect(498, 100, 181, 181))
+        self.logo_2.setPixmap(QPixmap(u"resources/images/background/Logo.png"))
+        self.logo_2.setScaledContents(True)
         self.stackedWidget.addWidget(self.principalAdmin)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -276,16 +428,23 @@ class Ui_MainWindow(object):
         self.button_register.setText(QCoreApplication.translate("MainWindow", u"Registrar", None))
         self.login_enlace.setText(QCoreApplication.translate("MainWindow", u"\u00bfYa tienes cuenta? Inicia sesion", None))
         self.contrasena_label_3.setText(QCoreApplication.translate("MainWindow", u"Repite contrase\u00f1a", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Pregunta", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Foto", None))
-        self.lineEdit.setText(QCoreApplication.translate("MainWindow", u"Respuesta", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
+        self.crearPregunta.setText(QCoreApplication.translate("MainWindow", u"Crear Pregunta", None))
+        self.eliminarPregunta.setText(QCoreApplication.translate("MainWindow", u"Eliminar Pregunta", None))
+        self.actualizarPregunta.setText(QCoreApplication.translate("MainWindow", u"Actualizar Pregunta", None))
+        self.listarPreguntas.setText(QCoreApplication.translate("MainWindow", u"Listar Preguntas", None))
+        self.logo.setText("")
+        self.preunta.setText(QCoreApplication.translate("MainWindow", u"Pregunta", None))
+        self.foto.setText("")
+        self.respuesta.setText(QCoreApplication.translate("MainWindow", u"Respuesta", None))
+        self.enviar.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
         self.buttonFacil.setText(QCoreApplication.translate("MainWindow", u"F\u00e1cil", None))
         self.buttonNormal.setText(QCoreApplication.translate("MainWindow", u"Normal", None))
         self.buttonDificil.setText(QCoreApplication.translate("MainWindow", u"Dif\u00edcil", None))
+        self.logo_3.setText("")
         self.buttonFacilAdmin.setText(QCoreApplication.translate("MainWindow", u"F\u00e1cil", None))
         self.buttonNormalAdmin.setText(QCoreApplication.translate("MainWindow", u"Normal", None))
         self.buttonDificilAdmin.setText(QCoreApplication.translate("MainWindow", u"Dif\u00edcil", None))
         self.buttonGestion.setText(QCoreApplication.translate("MainWindow", u"Gesti\u00f3n", None))
+        self.logo_2.setText("")
     # retranslateUi
 
