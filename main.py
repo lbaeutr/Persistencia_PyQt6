@@ -57,7 +57,7 @@ class SpaceRoom(QMainWindow):
             user = auth.sign_in_with_email_and_password(correo, contrasena)
             print(f"Login exitoso con: {correo}") # todo : esto debemos mostrar una pantalla de exito
             # ! Esto realiza el cambio de pantalla a la ventana principal
-            #self.stackedWidget.setCurrentIndex(1)
+            self.stackedWidget.setCurrentIndex(3)
 
         except:
             self.show_error("Correo o contraseña incorrectos")
