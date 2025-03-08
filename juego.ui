@@ -220,10 +220,12 @@ QPushButton:hover {
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-    background: #7CFC00;
+    background: #a29bfe;
     border-radius: 10px;
-    border: 1px solid #6BBE00;
+    border: 1px solid #716db2;
     color: black;
+    font-weight: bold;
+	font-size: 11px;
 }</string>
        </property>
        <property name="text">
@@ -281,7 +283,7 @@ QPushButton:hover {
       <property name="geometry">
        <rect>
         <x>380</x>
-        <y>170</y>
+        <y>255</y>
         <width>431</width>
         <height>341</height>
        </rect>
@@ -400,10 +402,12 @@ QPushButton:hover {
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-    background: #7CFC00;
+    background: #a29bfe;
     border-radius: 10px;
-    border: 1px solid #6BBE00;
+    border: 1px solid #716db2;
     color: black;
+    font-weight: bold;
+	font-size: 11px;
 }</string>
        </property>
        <property name="text">
@@ -413,7 +417,7 @@ QPushButton:hover {
       <widget class="QLabel" name="login_enlace">
        <property name="geometry">
         <rect>
-         <x>110</x>
+         <x>120</x>
          <y>290</y>
          <width>211</width>
          <height>20</height>
@@ -458,6 +462,25 @@ QPushButton:hover {
         </rect>
        </property>
       </widget>
+     </widget>
+     <widget class="QLabel" name="logo_5">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>55</y>
+        <width>181</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>resources/images/background/Logo.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="gestion">
@@ -576,18 +599,18 @@ QPushButton:hover {
      <widget class="QPushButton" name="boton_volver_admin_4">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>570</y>
+        <x>20</x>
+        <y>10</y>
         <width>75</width>
-        <height>41</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background: #87CEEB;
+    background: #a29bfe;
     border-radius: 10px;
     padding: 10px;
-    border: 1px solid #87CEEB;
+    border: 1px solid #716db2;
     color: black;
     font-weight: bold;
 }</string>
@@ -721,12 +744,20 @@ QPushButton:hover {
          <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-    background: #7CFC00;
+    background: #74b9ff;
     border-radius: 10px;
-    border: 1px solid #6BBE00;
+    border: 1px solid #578bbf;
     color: black;
+	font-weight: bold;
+	font-size: 11px;
 }</string>
        </property>
        <property name="text">
@@ -847,18 +878,18 @@ QPushButton:hover {
      <widget class="QPushButton" name="boton_volver_admin">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>570</y>
+        <x>20</x>
+        <y>10</y>
         <width>75</width>
-        <height>41</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background: #87CEEB;
+    background: #a29bfe;
     border-radius: 10px;
     padding: 10px;
-    border: 1px solid #87CEEB;
+    border: 1px solid #716db2;
     color: black;
     font-weight: bold;
 }</string>
@@ -931,12 +962,12 @@ QPushButton:hover {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background: #7CFC00;
+    background: #74b9ff;
     border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #6BBE00;
+    border: 1px solid #578bbf;
     color: black;
-    font-weight: bold;
+	font-weight: bold;
+	font-size: 11px;
 }</string>
       </property>
       <property name="text">
@@ -946,9 +977,9 @@ QPushButton:hover {
      <widget class="QComboBox" name="combo_respuestas">
       <property name="geometry">
        <rect>
-        <x>510</x>
+        <x>490</x>
         <y>520</y>
-        <width>301</width>
+        <width>321</width>
         <height>91</height>
        </rect>
       </property>
@@ -965,24 +996,43 @@ QPushButton:hover {
      <widget class="QPushButton" name="boton_volver">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>570</y>
+        <x>20</x>
+        <y>10</y>
         <width>75</width>
-        <height>41</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background: #87CEEB;
+    background: #a29bfe;
     border-radius: 10px;
     padding: 10px;
-    border: 1px solid #87CEEB;
+    border: 1px solid #716db2;
     color: black;
     font-weight: bold;
 }</string>
       </property>
       <property name="text">
        <string>Volver</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="respuestaLabel_2">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>490</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    color: black;
+	font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>Respuesta</string>
       </property>
      </widget>
     </widget>
@@ -1048,12 +1098,23 @@ QPushButton:hover {
          <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-    background: #7CFC00;
+    background: #a29bfe;
     border-radius: 10px;
-    border: 1px solid #6BBE00;
+    border: 1px solid #716db2;
     color: black;
+    font-weight: bold;
+	font-size: 11px;
 }</string>
        </property>
        <property name="text">
@@ -1210,10 +1271,12 @@ QPushButton:hover {
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-    background: #7CFC00;
+    background: #74b9ff;
     border-radius: 10px;
-    border: 1px solid #6BBE00;
+    border: 1px solid #578bbf;
     color: black;
+	font-weight: bold;
+	font-size: 11px;
 }</string>
        </property>
        <property name="text">
@@ -1296,18 +1359,18 @@ QPushButton:hover {
      <widget class="QPushButton" name="boton_volver_admin_2">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>570</y>
+        <x>20</x>
+        <y>10</y>
         <width>75</width>
-        <height>41</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background: #87CEEB;
+    background: #a29bfe;
     border-radius: 10px;
     padding: 10px;
-    border: 1px solid #87CEEB;
+    border: 1px solid #716db2;
     color: black;
     font-weight: bold;
 }</string>
@@ -1422,6 +1485,8 @@ QPushButton:hover {
     background: #CD5C5C;
     border-radius: 10px;
     color: black;
+	font-weight: bold;
+	font-size: 9pt;
 }</string>
        </property>
        <property name="text">
@@ -1432,18 +1497,18 @@ QPushButton:hover {
      <widget class="QPushButton" name="boton_volver_admin_3">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>570</y>
+        <x>20</x>
+        <y>10</y>
         <width>75</width>
-        <height>41</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background: #87CEEB;
+    background: #a29bfe;
     border-radius: 10px;
     padding: 10px;
-    border: 1px solid #87CEEB;
+    border: 1px solid #716db2;
     color: black;
     font-weight: bold;
 }</string>
@@ -1659,24 +1724,6 @@ QPushButton:hover {
       </property>
      </widget>
     </widget>
-   </widget>
-   <widget class="QLabel" name="respuestaLabel_2">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>690</y>
-      <width>111</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLabel {
-    color: black;
-}</string>
-    </property>
-    <property name="text">
-     <string>Respuesta</string>
-    </property>
    </widget>
   </widget>
  </widget>
