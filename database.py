@@ -10,7 +10,8 @@ cursor.execute('''
 CREATE TABLE IF NOT EXISTS Jugador (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre TEXT NOT NULL,
-    creacion DATETIME NOT NULL
+    creacion DATETIME NOT NULL,
+    rol TEXT NOT NULL
 )
 ''')
 

@@ -2,9 +2,8 @@ import sys
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox
 import pyrebase
-import requests
-import json
-
+import sqlite3
+from datetime import datetime
 
 
 
@@ -43,6 +42,17 @@ class SpaceRoom(QMainWindow):
         #! Conectar el enlace de inicio de sesión en la página de registro
         self.login_enlace.mousePressEvent = self.handle_login_page
 
+
+        #! Conectar los botones de dificultad a la función handle_difficulty
+        self.buttonFacil.clicked.connect(self.handle_difficulty)
+        self.buttonNormal.clicked.connect(self.handle_difficulty)
+        self.buttonDificil.clicked.connect(self.handle_difficulty)
+
+        #! Conectar a la base de datos
+        self.conn = sqlite3.connect('quiz.db')
+        self.cursor = self.conn.cursor()
+
+
     def handle_login(self):
         correo = self.input_correo.text().strip()
         contrasena = self.input_contrasena.text().strip()
@@ -51,13 +61,23 @@ class SpaceRoom(QMainWindow):
             self.show_error("Por favor, ingrese todos los datos")
             return
         
-
         #* Logica para iniciar sesión
         try:
             user = auth.sign_in_with_email_and_password(correo, contrasena)
             print(f"Login exitoso con: {correo}") # todo : esto debemos mostrar una pantalla de exito
-            # ! Esto realiza el cambio de pantalla a la ventana principal
-            self.stackedWidget.setCurrentIndex(3)
+
+            #! Obtener el rol del usuario desde la base de datos local
+            self.cursor.execute("SELECT rol FROM Jugador WHERE nombre = ?", (correo,))
+            result = self.cursor.fetchone()
+
+            if result:
+                rol = result[0]
+                if rol == "admin":
+                    self.stackedWidget.setCurrentIndex(9)  # Índice de la pantalla de administrador
+                else:
+                    self.stackedWidget.setCurrentIndex(8)  # Índice de la pantalla de usuario
+            else:
+                self.show_error("Usuario no encontrado en la base de datos local")
 
         except:
             self.show_error("Correo o contraseña incorrectos")
@@ -73,12 +93,19 @@ class SpaceRoom(QMainWindow):
         self.stackedWidget.setCurrentIndex(0)
         print("Cambiando a la pagina de inicio de sesion") #Esto son logs para el cambio de pantalla para versi se hace bien
 
+
+    def handle_difficulty(self):
+        self.stackedWidget.setCurrentIndex(3)  # Indice de la pantalla de juego
+        print("Cambiando a la pantalla de juego") # Esto son logs 
+
     def handle_register_action(self): # Este metodo es para registrar un usuario
         correo = self.input_correo_2.text().strip()
         contrasena = self.input_contrasena_2.text().strip()
         confirmar_contrasena = self.input_repeatContra.text().strip()
+        nombre = self.input_correo_2.text().strip()
+        rol = "user"  
 
-        if  not correo or not contrasena or not confirmar_contrasena:
+        if not correo or not contrasena or not confirmar_contrasena or not nombre:
             self.show_error("Por favor, ingrese todos los datos")
             return
 
@@ -88,14 +115,20 @@ class SpaceRoom(QMainWindow):
 
         # todo: En esta parte tenemos que anadir la logica del registro
         try:
+            # Registrar el usuario en Firebase
             user = auth.create_user_with_email_and_password(correo, contrasena)
             print(f"Registro exitoso con: {correo}") # todo : esto debemos mostrar una pantalla de exito
+
+            # Crear un registro en la base de datos local
+            creacion = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            self.cursor.execute("INSERT INTO Jugador (nombre, creacion, rol) VALUES (?, ?, ?)", (nombre, creacion, rol))
+            self.conn.commit()
+
             self.stackedWidget.setCurrentIndex(0)
-        except:
-            self.show_error("Error al registrar el usuario")
+        except Exception as e:
+            self.show_error(f"Error al registrar el usuario: {str(e)}")
         print(f"Registro con:  {correo}, {contrasena}")
 
-  
 
     def show_error(self, message): # Este metodo es para mostrar un mensaje de error en la pantalla
         msg = QMessageBox()

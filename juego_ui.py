@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'juego.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.2
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
 "}")
         self.groupBox_login = QGroupBox(self.login)
         self.groupBox_login.setObjectName(u"groupBox_login")
-        self.groupBox_login.setGeometry(QRect(380, 210, 431, 281))
+        self.groupBox_login.setGeometry(QRect(380, 310, 431, 281))
         font = QFont()
         font.setPointSize(26)
         self.groupBox_login.setFont(font)
@@ -126,6 +126,11 @@ class Ui_MainWindow(object):
 "    text-decoration: underline;\n"
 "    cursor: pointer;\n"
 "}")
+        self.logo_4 = QLabel(self.login)
+        self.logo_4.setObjectName(u"logo_4")
+        self.logo_4.setGeometry(QRect(498, 100, 181, 181))
+        self.logo_4.setPixmap(QPixmap(u"resources/images/background/Logo.png"))
+        self.logo_4.setScaledContents(True)
         self.stackedWidget.addWidget(self.login)
         self.register_2 = QWidget()
         self.register_2.setObjectName(u"register_2")
@@ -717,7 +722,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -731,6 +736,7 @@ class Ui_MainWindow(object):
         self.contrasena_label.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a", None))
         self.button_login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
         self.registro_enlace.setText(QCoreApplication.translate("MainWindow", u"\u00bfNo tienes una cuenta? Reg\u00edstrate aqu\u00ed", None))
+        self.logo_4.setText("")
         self.groupBox_register.setTitle("")
         self.correo_label_2.setText(QCoreApplication.translate("MainWindow", u"Correo Electronico", None))
         self.contrasena_label_2.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a", None))
