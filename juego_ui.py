@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGroupBox, QLabel, QLineEdit,
-    QMainWindow, QPushButton, QSizePolicy, QStackedWidget,
-    QTextEdit, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QGroupBox, QLabel,
+    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+    QStackedWidget, QTextEdit, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -417,6 +417,16 @@ class Ui_MainWindow(object):
 "    color: black;\n"
 "    font-weight: bold;\n"
 "}")
+        self.combo_respuestas = QComboBox(self.Juego)
+        self.combo_respuestas.setObjectName(u"combo_respuestas")
+        self.combo_respuestas.setGeometry(QRect(450, 453, 301, 91))
+        self.combo_respuestas.setStyleSheet(u"QComboBox {\n"
+"    background: white;\n"
+"    border-radius: 15px;\n"
+"    padding: 10px;\n"
+"    border: 1px solid #ccc;\n"
+"}\n"
+"")
         self.stackedWidget.addWidget(self.Juego)
         self.ListarScreen = QWidget()
         self.ListarScreen.setObjectName(u"ListarScreen")
@@ -722,7 +732,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
