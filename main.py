@@ -3,6 +3,7 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox
 import pyrebase
 import sqlite3
+import random
 from datetime import datetime
 
 # Configuración de Pyrebase
@@ -60,7 +61,8 @@ class SpaceRoom(QMainWindow):
         self.cursor = self.conn.cursor()
 
         #* Botones de pantalla Juego
-        self.enviar.clicked.connect(self.mostrar_siguiente_pregunta)
+        self.enviar.clicked.connect(self.enviar_respuesta)
+        self.boton_volver.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(8))
 
         #! Pantalla de gestión
         #* Boton de listar preguntas
@@ -83,6 +85,12 @@ class SpaceRoom(QMainWindow):
         self.actualizarPregunta.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
         #* Boton para Accion de actualizar
         self.buttonActualizar.clicked.connect(self.actualizar_pregunta)
+
+        #* Botones para volver como admin
+        self.boton_volver_admin.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(9))
+        self.boton_volver_admin_2.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(9))
+        self.boton_volver_admin_3.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(9))
+        self.boton_volver_admin_4.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(9))
 
 #* ############################# Registro y Login #############################
 
@@ -177,7 +185,9 @@ class SpaceRoom(QMainWindow):
         self.mostrar_pregunta_actual()
 
     def reiniciar_quiz(self):
-        self.stackedWidget.setCurrentIndex(1)  # Volver al menú de selección de dificultad
+        self.stackedWidget.setCurrentIndex(8)  # Volver al menú de selección de dificultad
+
+        
 
     def obtener_preguntas_por_nivel(self, nivel_id):
         # Obtener las preguntas y respuestas del nivel seleccionado
@@ -199,6 +209,37 @@ class SpaceRoom(QMainWindow):
                 preguntas.append(pregunta)
             pregunta['respuestas'].append({'id': respuesta_id, 'texto': respuesta_texto, 'correcta': correcta})
 
+        # Obtener respuestas incorrectas aleatorias de otras preguntas
+        self.cursor.execute('''
+        SELECT Respuesta.texto
+        FROM Respuesta
+        JOIN Pregunta ON Respuesta.pregunta_id = Pregunta.id
+        WHERE Pregunta.nivel_id = ? AND Respuesta.correcta = 0
+        ''', (nivel_id,))
+        respuestas_incorrectas = [row[0] for row in self.cursor.fetchall()]
+
+        # Si no hay respuestas incorrectas, forzar algunas respuestas como incorrectas
+        if not respuestas_incorrectas:
+            self.cursor.execute('''
+            SELECT Respuesta.texto
+            FROM Respuesta
+            JOIN Pregunta ON Respuesta.pregunta_id = Pregunta.id
+            WHERE Pregunta.nivel_id = ?
+            ''', (nivel_id,))
+            todas_las_respuestas = [row[0] for row in self.cursor.fetchall()]
+            respuestas_incorrectas = todas_las_respuestas  # Usar todas las respuestas como incorrectas
+
+        # Mezclar las respuestas incorrectas para obtener opciones aleatorias
+        import random
+        random.shuffle(respuestas_incorrectas)
+
+        # Añadir respuestas incorrectas aleatorias a cada pregunta
+        for pregunta in preguntas:
+            respuestas_correctas = [r for r in pregunta['respuestas'] if r['correcta'] == 1]
+            respuestas_incorrectas_pregunta = respuestas_incorrectas[:3]  # Tomar 3 respuestas incorrectas aleatorias
+            pregunta['respuestas'] = respuestas_correctas + [{'texto': r, 'correcta': 0} for r in respuestas_incorrectas_pregunta]
+            random.shuffle(pregunta['respuestas'])  # Mezclar las respuestas para que no siempre esté primero la correcta
+
         return preguntas
 
     def mostrar_pregunta_actual(self):
@@ -207,6 +248,9 @@ class SpaceRoom(QMainWindow):
 
             # Mostrar la pregunta
             self.pregunta.setText(pregunta_actual['texto'])
+
+            # Verificar la estructura de las respuestas (para depuración)
+            print("Pregunta actual:", pregunta_actual)
 
             # Agregar las respuestas al comboBox
             self.combo_respuestas.clear()
@@ -218,13 +262,40 @@ class SpaceRoom(QMainWindow):
             self.combo_respuestas.clear()
             # Volver al menu de selección de dificultad
             if self.rol == "user":
-                self.stackedWidget.setCurrentIndex(8)  # Menu de administrador
+                self.stackedWidget.setCurrentIndex(9)  # Menu de administrador
             else:
-                self.stackedWidget.setCurrentIndex(9)  # menu de usuario
+                self.stackedWidget.setCurrentIndex(8)  # menu de usuario
 
-    def mostrar_siguiente_pregunta(self):
-        self.indice_pregunta_actual += 1
-        self.mostrar_pregunta_actual()
+    def enviar_respuesta(self):
+
+        if self.indice_pregunta_actual < len(self.preguntas):
+            pregunta_actual = self.preguntas[self.indice_pregunta_actual]
+            respuesta_seleccionada = self.combo_respuestas.currentText()
+
+            # Verificar si la respuesta seleccionada es correcta
+            respuesta_correcta = next((r for r in pregunta_actual['respuestas'] if r['correcta'] == 1), None)
+            if respuesta_correcta and respuesta_seleccionada == respuesta_correcta['texto']:
+                # Mostrar un mensaje de "Correcto"
+                QMessageBox.information(
+                    self,  # Ventana padre
+                    "Correcto",  # Título del mensaje
+                    "¡Respuesta correcta!",  # Mensaje
+                    QMessageBox.StandardButton.Ok  # Botón "Aceptar"
+                )
+            else:
+                self.show_error(f"Respuesta incorrecta. La respuesta correcta era: {respuesta_correcta['texto']}")
+
+            # Pasar a la siguiente pregunta
+            self.indice_pregunta_actual += 1
+            self.mostrar_pregunta_actual()  # Mostrar la siguiente pregunta
+        else:
+            # Si no hay más preguntas, mostrar un mensaje de finalización
+            self.show_error("¡Has completado el quiz!")
+            # Volver al menú de selección de dificultad
+            if self.rol == "user":
+                self.stackedWidget.setCurrentIndex(8)  # Menú de usuario
+            else:
+                self.stackedWidget.setCurrentIndex(9)  # Menú de administrador
 
 #* ############################# Control Errores #############################
 
@@ -245,39 +316,102 @@ class SpaceRoom(QMainWindow):
 
 
     def crear_pregunta(self):
-        #inputPregunta_2 = self.inputPregunta_2.text()
-        #inputRespuesta_2 = self.inputRespuesta_2.text()
-
-
-
-        #todo logica de programacion crear pregunta
+        # Obtener el texto de la pregunta (QTextEdit)
+        texto_pregunta = self.inputPregunta_2.toPlainText().strip()
         
+        # Obtener el nivel seleccionado (QComboBox)
+        nivel_id = self.comboNivel.currentIndex() + 1  # Asumiendo que el comboBox tiene los niveles 1, 2, 3
+        
+        # Obtener la respuesta correcta (QLineEdit)
+        respuesta_correcta = self.inputRespuesta.text().strip()
 
-        self.stackedWidget.setCurrentIndex(2)  
+        # Validar que todos los campos estén completos
+        if not texto_pregunta or not respuesta_correcta:
+            self.show_error("Por favor, complete todos los campos")
+            return
+
+        try:
+            # Insertar la pregunta en la base de datos
+            self.cursor.execute("INSERT INTO Pregunta (texto, nivel_id) VALUES (?, ?)", (texto_pregunta, nivel_id))
+            pregunta_id = self.cursor.lastrowid  # Obtener el ID de la pregunta recién insertada
+
+            # Insertar la respuesta correcta en la base de datos
+            self.cursor.execute(
+                "INSERT INTO Respuesta (texto, correcta, pregunta_id) VALUES (?, ?, ?)",
+                (respuesta_correcta, 1, pregunta_id)  # correcta = 1 (verdadero)
+            )
+
+            # Guardar los cambios en la base de datos
+            self.conn.commit()
+            
+            # Mostrar un mensaje de éxito
+            QMessageBox.information(self, "Éxito", "Pregunta creada exitosamente")
+            
+            # Limpiar los campos
+            self.limpiar_campos()
+            
+            # Volver a la pantalla de gestión
+            self.stackedWidget.setCurrentIndex(2)
+        except Exception as e:
+            print(f"Error: {str(e)}")  # Depuración
+            QMessageBox.critical(self, "Error", f"Error al crear la pregunta: {str(e)}")
+
+    def limpiar_campos(self):
+        # Limpiar campos en el crear pregunta
+        self.inputPregunta_2.clear()        
+        self.inputRespuesta.clear()        
+        self.comboNivel.setCurrentIndex(0)        
+        if hasattr(self, 'comboCorrecta'):
+            self.comboCorrecta.setCurrentIndex(0)
+
+        # Limpiar campos en el modificar pregunta
+        self.inputPregunta.clear()
+        self.inputRespuesta_3.clear()
+        self.inputId.clear()
+        if hasattr(self, 'comboNivel'):
+            self.comboNivel.setCurrentIndex(0)
+        
 
     def eliminar_pregunta(self):
-        #* input para el id
-        inputId_2 = self.inputId_2.text()
-        print(inputId_2) # log para comprobacion
-        
+        pregunta_id = self.inputId_2.text().strip()
 
-        #todo logica de programacion para eliminar pregunta
-        
+        if not pregunta_id:
+            self.show_error("Por favor, ingrese el ID de la pregunta")
+            return
 
-        self.stackedWidget.setCurrentIndex(2)
+        try:
+            # Eliminar las respuestas asociadas a la pregunta
+            self.cursor.execute("DELETE FROM Respuesta WHERE pregunta_id = ?", (pregunta_id,))
+            # Eliminar la pregunta
+            self.cursor.execute("DELETE FROM Pregunta WHERE id = ?", (pregunta_id,))
+            self.conn.commit()
+            self.show_error("Pregunta eliminada exitosamente")
+            self.stackedWidget.setCurrentIndex(2)  # Volver a la pantalla de gestión
+        except Exception as e:
+            self.show_error(f"Error al eliminar la pregunta: {str(e)}")
 
     def actualizar_pregunta(self):  
-        inputId = self.inputId.text()
-        inputPregunta = self.inputPregunta.toPlainText()
-        inputRespuesta = self.inputRespuesta_3.text()
+        pregunta_id = self.inputId.text().strip()
+        texto_pregunta = self.inputPregunta.toPlainText().strip()
+        texto_respuesta = self.inputRespuesta_3.text().strip()
 
-        print(inputId) # log para comprobacion
-        print(inputPregunta)
-        print(inputRespuesta)
+        if not pregunta_id or not texto_pregunta or not texto_respuesta:
+            self.show_error("Por favor, complete todos los campos")
+            return
 
-        #todo logica de programacion para actualizar pregunta
+        try:
+            # Actualizar la pregunta
+            self.cursor.execute("UPDATE Pregunta SET texto = ? WHERE id = ?", (texto_pregunta, pregunta_id))
+            # Actualizar la respuesta (asumiendo que solo se actualiza una respuesta)
+            self.cursor.execute("UPDATE Respuesta SET texto = ? WHERE pregunta_id = ?", (texto_respuesta, pregunta_id))
+            self.conn.commit()
+            QMessageBox.information(self, "Éxito", "Pregunta actualizada exitosamente")
+            self.limpiar_campos()
+            self.stackedWidget.setCurrentIndex(2)  # Volver a la pantalla de gestión
+        except Exception as e:
+            self.show_error(f"Error al actualizar la pregunta: {str(e)}")
 
-        self.stackedWidget.setCurrentIndex(2)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
