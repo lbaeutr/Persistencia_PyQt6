@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'juego.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.2
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -434,6 +434,9 @@ class Ui_MainWindow(object):
         self.pregunta = QLabel(self.Juego)
         self.pregunta.setObjectName(u"pregunta")
         self.pregunta.setGeometry(QRect(280, 30, 811, 111))
+        font3 = QFont()
+        font3.setPointSize(20)
+        self.pregunta.setFont(font3)
         self.pregunta.setStyleSheet(u"QLabel {\n"
 "    background: white;\n"
 "    border-radius: 15px;\n"
@@ -462,12 +465,20 @@ class Ui_MainWindow(object):
 "}")
         self.combo_respuestas = QComboBox(self.Juego)
         self.combo_respuestas.setObjectName(u"combo_respuestas")
+        self.combo_respuestas.setEnabled(True)
         self.combo_respuestas.setGeometry(QRect(490, 520, 321, 91))
+        self.combo_respuestas.setFont(font3)
         self.combo_respuestas.setStyleSheet(u"QComboBox {\n"
 "    background: white;\n"
 "    border-radius: 15px;\n"
 "    padding: 10px;\n"
 "    border: 1px solid #ccc;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    border: 0px;\n"
+"    image: none;\n"
+"    width: 0px;\n"
 "}\n"
 "")
         self.boton_volver = QPushButton(self.Juego)
@@ -838,7 +849,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -881,7 +892,7 @@ class Ui_MainWindow(object):
         self.foto.setText("")
         self.enviar.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
         self.boton_volver.setText(QCoreApplication.translate("MainWindow", u"Volver", None))
-        self.respuestaLabel_2.setText(QCoreApplication.translate("MainWindow", u"Respuesta", None))
+        self.respuestaLabel_2.setText(QCoreApplication.translate("MainWindow", u"Elige opci\u00f3n:", None))
         self.groupBox_login_5.setTitle("")
         self.buttonVolver.setText(QCoreApplication.translate("MainWindow", u"Volver", None))
         self.groupBox_login_2.setTitle("")

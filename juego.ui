@@ -87,7 +87,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -914,6 +914,11 @@ QPushButton:hover {
         <height>111</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QLabel {
     background: white;
@@ -975,6 +980,9 @@ QPushButton:hover {
       </property>
      </widget>
      <widget class="QComboBox" name="combo_respuestas">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>490</x>
@@ -983,12 +991,23 @@ QPushButton:hover {
         <height>91</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QComboBox {
     background: white;
     border-radius: 15px;
     padding: 10px;
     border: 1px solid #ccc;
+}
+
+QComboBox::drop-down {
+    border: 0px;
+    image: none;
+    width: 0px;
 }
 </string>
       </property>
@@ -1032,7 +1051,7 @@ QPushButton:hover {
 }</string>
       </property>
       <property name="text">
-       <string>Respuesta</string>
+       <string>Elige opción:</string>
       </property>
      </widget>
     </widget>
