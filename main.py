@@ -1,5 +1,6 @@
 import sys
-from PyQt6 import uic
+import os
+from PyQt6.uic import loadUi
 from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox
 import pyrebase
 import sqlite3
@@ -26,11 +27,25 @@ auth = firebase.auth()
 class SpaceRoom(QMainWindow):
     def __init__(self):
         super(SpaceRoom, self).__init__()
-        uic.loadUi("juego.ui", self)
 
-        #* Titulo ventana principal
+
+
+       # Ruta del ejecutable
+        base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+
+        # Cargar el archivo UI
+        ui_path = os.path.join(base_path, "juego.ui")
+        loadUi(ui_path, self)
+
+        # Cargar icono de la ventana
+        icon_path = os.path.join(base_path, "resources", "images", "background", "logo.ico")
+        self.setWindowIcon(QIcon(icon_path))
+
+
         self.setWindowTitle("Quiz")
-        self.setWindowIcon(QIcon("logo.ico"))
+
+        # Cargar base de datos
+        db_path = os.path.join(base_path, "quiz.db")
 
         #* Establecer la página inicial (índice 0, inicio de sesión)
         self.stackedWidget.setCurrentIndex(0)
@@ -448,6 +463,6 @@ class SpaceRoom(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    dia = SpaceRoom()
-    dia.show()
+    window = SpaceRoom()
+    window.show()
     sys.exit(app.exec())
