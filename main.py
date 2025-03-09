@@ -3,6 +3,7 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox
 import pyrebase
 import sqlite3
+from PyQt6.QtGui import QIcon
 import random
 from datetime import datetime
 
@@ -28,7 +29,8 @@ class SpaceRoom(QMainWindow):
         uic.loadUi("juego.ui", self)
 
         #* Titulo ventana principal
-        self.setWindowTitle("Programa")
+        self.setWindowTitle("Quiz")
+        self.setWindowIcon(QIcon("logo.ico"))
 
         #* Establecer la página inicial (índice 0, inicio de sesión)
         self.stackedWidget.setCurrentIndex(0)
