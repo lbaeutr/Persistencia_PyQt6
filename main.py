@@ -6,6 +6,7 @@ import sqlite3
 import random
 from datetime import datetime
 
+
 # Configuración de Pyrebase
 config = {
     "apiKey": "AIzaSyBhn8Aabjpo3u2DkTsyYzjIvmRztP2t-jo",
@@ -65,8 +66,11 @@ class SpaceRoom(QMainWindow):
         self.boton_volver.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(8))
 
         #! Pantalla de gestión
-        #* Boton de listar preguntas
-        self.listarPreguntas.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(5))
+
+        # Botón de listar preguntas
+        self.listarPreguntas.clicked.connect(self.listar_preguntas)
+
+
         #* Boton regreso pantalla de gestión de preguntas
         self.buttonVolver.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
 
@@ -308,12 +312,39 @@ class SpaceRoom(QMainWindow):
 
 #* ############################# CRUD #############################
 
-    def mostrar_listar_preguntas(self):
-        #todo falta un boton para volver a la pantalla de gestion
+    def listar_preguntas(self):
+        try:
+            self.cursor.execute('''
+                SELECT Pregunta.id, Pregunta.texto, Pregunta.nivel_id, Respuesta.texto
+                FROM Pregunta
+                JOIN Respuesta ON Pregunta.id = Respuesta.pregunta_id
+                ORDER BY Pregunta.id
+            ''')
+            resultados = self.cursor.fetchall()
 
-        #self.stackedWidget.setCurrentIndex(5)  
-        print("Cambiando a la pantalla de listar preguntas")  # Esto son logs para el cambio de pantalla para ver si se hace bien
+            print("Resultados de la consulta:", resultados)  # 🔍 Depuración
 
+            if not resultados:
+                self.listarBrowser.setPlainText("No hay preguntas registradas.")
+            else:
+                texto = ""
+                pregunta_actual = None
+                for row in resultados:
+                    pregunta_id, texto_pregunta, nivel, texto_respuesta = row
+                    if pregunta_actual != pregunta_id:
+                        texto += f"\nID: {pregunta_id} | Nivel: {nivel}\nPregunta: {texto_pregunta}\nRespuestas:\n"
+                        pregunta_actual = pregunta_id
+                    texto += f"  - {texto_respuesta}\n"
+
+                print("Texto generado:", texto)  # 🔍 Depuración
+                self.listarBrowser.setPlainText(texto)
+
+            self.stackedWidget.setCurrentIndex(5)  # Cambiar a la pantalla correcta
+
+        except Exception as e:
+            print("Error al listar preguntas:", e)  # 🔍 Depuración
+            self.listarBrowser.setPlainText(f"Error al listar preguntas: {str(e)}")
+            self.stackedWidget.setCurrentIndex(5)
 
     def crear_pregunta(self):
         # Obtener el texto de la pregunta (QTextEdit)

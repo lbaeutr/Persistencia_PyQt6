@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QGroupBox, QLabel,
     QLineEdit, QMainWindow, QPushButton, QSizePolicy,
-    QStackedWidget, QTextEdit, QWidget)
+    QStackedWidget, QTextBrowser, QTextEdit, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -113,10 +113,12 @@ class Ui_MainWindow(object):
         self.button_login.setObjectName(u"button_login")
         self.button_login.setGeometry(QRect(170, 190, 75, 31))
         self.button_login.setStyleSheet(u"QPushButton {\n"
-"    background: #7CFC00;\n"
+"    background: #a29bfe;\n"
 "    border-radius: 10px;\n"
-"    border: 1px solid #6BBE00;\n"
+"    border: 1px solid #716db2;\n"
 "    color: black;\n"
+"    font-weight: bold;\n"
+"	font-size: 11px;\n"
 "}")
         self.registro_enlace = QLabel(self.groupBox_login)
         self.registro_enlace.setObjectName(u"registro_enlace")
@@ -139,7 +141,7 @@ class Ui_MainWindow(object):
 "}")
         self.groupBox_register = QGroupBox(self.register_2)
         self.groupBox_register.setObjectName(u"groupBox_register")
-        self.groupBox_register.setGeometry(QRect(380, 170, 431, 341))
+        self.groupBox_register.setGeometry(QRect(380, 255, 431, 341))
         font2 = QFont()
         font2.setPointSize(1)
         self.groupBox_register.setFont(font2)
@@ -198,14 +200,16 @@ class Ui_MainWindow(object):
         self.button_register.setObjectName(u"button_register")
         self.button_register.setGeometry(QRect(170, 250, 75, 31))
         self.button_register.setStyleSheet(u"QPushButton {\n"
-"    background: #7CFC00;\n"
+"    background: #a29bfe;\n"
 "    border-radius: 10px;\n"
-"    border: 1px solid #6BBE00;\n"
+"    border: 1px solid #716db2;\n"
 "    color: black;\n"
+"    font-weight: bold;\n"
+"	font-size: 11px;\n"
 "}")
         self.login_enlace = QLabel(self.groupBox_register)
         self.login_enlace.setObjectName(u"login_enlace")
-        self.login_enlace.setGeometry(QRect(110, 290, 211, 20))
+        self.login_enlace.setGeometry(QRect(120, 290, 211, 20))
         self.login_enlace.setStyleSheet(u"QLabel {\n"
 "    color: blue;\n"
 "    text-decoration: underline;\n"
@@ -220,6 +224,11 @@ class Ui_MainWindow(object):
         self.input_repeatContra = QLineEdit(self.groupBox_register)
         self.input_repeatContra.setObjectName(u"input_repeatContra")
         self.input_repeatContra.setGeometry(QRect(50, 210, 331, 31))
+        self.logo_5 = QLabel(self.register_2)
+        self.logo_5.setObjectName(u"logo_5")
+        self.logo_5.setGeometry(QRect(498, 55, 181, 181))
+        self.logo_5.setPixmap(QPixmap(u"resources/images/background/Logo.png"))
+        self.logo_5.setScaledContents(True)
         self.stackedWidget.addWidget(self.register_2)
         self.gestion = QWidget()
         self.gestion.setObjectName(u"gestion")
@@ -273,12 +282,12 @@ class Ui_MainWindow(object):
         self.logo.setScaledContents(True)
         self.boton_volver_admin_4 = QPushButton(self.gestion)
         self.boton_volver_admin_4.setObjectName(u"boton_volver_admin_4")
-        self.boton_volver_admin_4.setGeometry(QRect(180, 570, 75, 41))
+        self.boton_volver_admin_4.setGeometry(QRect(20, 10, 75, 31))
         self.boton_volver_admin_4.setStyleSheet(u"QPushButton {\n"
-"    background: #87CEEB;\n"
+"    background: #a29bfe;\n"
 "    border-radius: 10px;\n"
 "    padding: 10px;\n"
-"    border: 1px solid #87CEEB;\n"
+"    border: 1px solid #716db2;\n"
 "    color: black;\n"
 "    font-weight: bold;\n"
 "}")
@@ -349,11 +358,14 @@ class Ui_MainWindow(object):
         self.buttonActualizar = QPushButton(self.groupBox_login_4)
         self.buttonActualizar.setObjectName(u"buttonActualizar")
         self.buttonActualizar.setGeometry(QRect(170, 550, 75, 31))
+        self.buttonActualizar.setFont(font1)
         self.buttonActualizar.setStyleSheet(u"QPushButton {\n"
-"    background: #7CFC00;\n"
+"    background: #74b9ff;\n"
 "    border-radius: 10px;\n"
-"    border: 1px solid #6BBE00;\n"
+"    border: 1px solid #578bbf;\n"
 "    color: black;\n"
+"	font-weight: bold;\n"
+"	font-size: 11px;\n"
 "}")
         self.inputPregunta = QTextEdit(self.groupBox_login_4)
         self.inputPregunta.setObjectName(u"inputPregunta")
@@ -404,12 +416,12 @@ class Ui_MainWindow(object):
 "")
         self.boton_volver_admin = QPushButton(self.ActualizarScreen)
         self.boton_volver_admin.setObjectName(u"boton_volver_admin")
-        self.boton_volver_admin.setGeometry(QRect(180, 570, 75, 41))
+        self.boton_volver_admin.setGeometry(QRect(20, 10, 75, 31))
         self.boton_volver_admin.setStyleSheet(u"QPushButton {\n"
-"    background: #87CEEB;\n"
+"    background: #a29bfe;\n"
 "    border-radius: 10px;\n"
 "    padding: 10px;\n"
-"    border: 1px solid #87CEEB;\n"
+"    border: 1px solid #716db2;\n"
 "    color: black;\n"
 "    font-weight: bold;\n"
 "}")
@@ -441,16 +453,16 @@ class Ui_MainWindow(object):
         self.enviar.setObjectName(u"enviar")
         self.enviar.setGeometry(QRect(850, 550, 75, 31))
         self.enviar.setStyleSheet(u"QPushButton {\n"
-"    background: #7CFC00;\n"
+"    background: #74b9ff;\n"
 "    border-radius: 10px;\n"
-"    padding: 10px;\n"
-"    border: 1px solid #6BBE00;\n"
+"    border: 1px solid #578bbf;\n"
 "    color: black;\n"
-"    font-weight: bold;\n"
+"	font-weight: bold;\n"
+"	font-size: 11px;\n"
 "}")
         self.combo_respuestas = QComboBox(self.Juego)
         self.combo_respuestas.setObjectName(u"combo_respuestas")
-        self.combo_respuestas.setGeometry(QRect(510, 520, 301, 91))
+        self.combo_respuestas.setGeometry(QRect(490, 520, 321, 91))
         self.combo_respuestas.setStyleSheet(u"QComboBox {\n"
 "    background: white;\n"
 "    border-radius: 15px;\n"
@@ -460,14 +472,21 @@ class Ui_MainWindow(object):
 "")
         self.boton_volver = QPushButton(self.Juego)
         self.boton_volver.setObjectName(u"boton_volver")
-        self.boton_volver.setGeometry(QRect(170, 570, 75, 41))
+        self.boton_volver.setGeometry(QRect(20, 10, 75, 31))
         self.boton_volver.setStyleSheet(u"QPushButton {\n"
-"    background: #87CEEB;\n"
+"    background: #a29bfe;\n"
 "    border-radius: 10px;\n"
 "    padding: 10px;\n"
-"    border: 1px solid #87CEEB;\n"
+"    border: 1px solid #716db2;\n"
 "    color: black;\n"
 "    font-weight: bold;\n"
+"}")
+        self.respuestaLabel_2 = QLabel(self.Juego)
+        self.respuestaLabel_2.setObjectName(u"respuestaLabel_2")
+        self.respuestaLabel_2.setGeometry(QRect(500, 490, 111, 16))
+        self.respuestaLabel_2.setStyleSheet(u"QLabel {\n"
+"    color: black;\n"
+"	font-weight: bold;\n"
 "}")
         self.stackedWidget.addWidget(self.Juego)
         self.ListarScreen = QWidget()
@@ -512,21 +531,21 @@ class Ui_MainWindow(object):
         self.buttonVolver = QPushButton(self.groupBox_login_5)
         self.buttonVolver.setObjectName(u"buttonVolver")
         self.buttonVolver.setGeometry(QRect(390, 580, 75, 31))
+        self.buttonVolver.setFont(font1)
+        self.buttonVolver.setMouseTracking(True)
         self.buttonVolver.setStyleSheet(u"QPushButton {\n"
-"    background: #7CFC00;\n"
+"    background: #a29bfe;\n"
 "    border-radius: 10px;\n"
-"    border: 1px solid #6BBE00;\n"
+"    border: 1px solid #716db2;\n"
 "    color: black;\n"
+"    font-weight: bold;\n"
+"	font-size: 11px;\n"
 "}")
-        self.listarLabel = QLabel(self.groupBox_login_5)
-        self.listarLabel.setObjectName(u"listarLabel")
-        self.listarLabel.setGeometry(QRect(50, 30, 751, 531))
-        self.listarLabel.setStyleSheet(u"QLabel {\n"
-"    border: 1px solid #ccc;\n"
-"    border-radius: 10px;\n"
-"    padding: 5px;\n"
+        self.listarBrowser = QTextBrowser(self.groupBox_login_5)
+        self.listarBrowser.setObjectName(u"listarBrowser")
+        self.listarBrowser.setGeometry(QRect(10, 10, 831, 551))
+        self.listarBrowser.setStyleSheet(u"QTextBrowser {\n"
 "    background: white;\n"
-"    font-size: 14px;\n"
 "}")
         self.stackedWidget.addWidget(self.ListarScreen)
         self.CrearScreen = QWidget()
@@ -596,10 +615,12 @@ class Ui_MainWindow(object):
         self.buttonEnviar.setObjectName(u"buttonEnviar")
         self.buttonEnviar.setGeometry(QRect(160, 490, 75, 31))
         self.buttonEnviar.setStyleSheet(u"QPushButton {\n"
-"    background: #7CFC00;\n"
+"    background: #74b9ff;\n"
 "    border-radius: 10px;\n"
-"    border: 1px solid #6BBE00;\n"
+"    border: 1px solid #578bbf;\n"
 "    color: black;\n"
+"	font-weight: bold;\n"
+"	font-size: 11px;\n"
 "}")
         self.inputPregunta_2 = QTextEdit(self.groupBox_login_2)
         self.inputPregunta_2.setObjectName(u"inputPregunta_2")
@@ -633,12 +654,12 @@ class Ui_MainWindow(object):
 "")
         self.boton_volver_admin_2 = QPushButton(self.CrearScreen)
         self.boton_volver_admin_2.setObjectName(u"boton_volver_admin_2")
-        self.boton_volver_admin_2.setGeometry(QRect(180, 570, 75, 41))
+        self.boton_volver_admin_2.setGeometry(QRect(20, 10, 75, 31))
         self.boton_volver_admin_2.setStyleSheet(u"QPushButton {\n"
-"    background: #87CEEB;\n"
+"    background: #a29bfe;\n"
 "    border-radius: 10px;\n"
 "    padding: 10px;\n"
-"    border: 1px solid #87CEEB;\n"
+"    border: 1px solid #716db2;\n"
 "    color: black;\n"
 "    font-weight: bold;\n"
 "}")
@@ -706,15 +727,17 @@ class Ui_MainWindow(object):
 "    background: #CD5C5C;\n"
 "    border-radius: 10px;\n"
 "    color: black;\n"
+"	font-weight: bold;\n"
+"	font-size: 9pt;\n"
 "}")
         self.boton_volver_admin_3 = QPushButton(self.EliminarScreen)
         self.boton_volver_admin_3.setObjectName(u"boton_volver_admin_3")
-        self.boton_volver_admin_3.setGeometry(QRect(180, 570, 75, 41))
+        self.boton_volver_admin_3.setGeometry(QRect(20, 10, 75, 31))
         self.boton_volver_admin_3.setStyleSheet(u"QPushButton {\n"
-"    background: #87CEEB;\n"
+"    background: #a29bfe;\n"
 "    border-radius: 10px;\n"
 "    padding: 10px;\n"
-"    border: 1px solid #87CEEB;\n"
+"    border: 1px solid #716db2;\n"
 "    color: black;\n"
 "    font-weight: bold;\n"
 "}")
@@ -811,17 +834,11 @@ class Ui_MainWindow(object):
         self.logo_2.setPixmap(QPixmap(u"resources/images/background/Logo.png"))
         self.logo_2.setScaledContents(True)
         self.stackedWidget.addWidget(self.principalAdmin)
-        self.respuestaLabel_2 = QLabel(self.centralwidget)
-        self.respuestaLabel_2.setObjectName(u"respuestaLabel_2")
-        self.respuestaLabel_2.setGeometry(QRect(720, 690, 111, 16))
-        self.respuestaLabel_2.setStyleSheet(u"QLabel {\n"
-"    color: black;\n"
-"}")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -842,6 +859,7 @@ class Ui_MainWindow(object):
         self.button_register.setText(QCoreApplication.translate("MainWindow", u"Registrar", None))
         self.login_enlace.setText(QCoreApplication.translate("MainWindow", u"\u00bfYa tienes cuenta? Inicia sesion", None))
         self.contrasena_label_3.setText(QCoreApplication.translate("MainWindow", u"Repite contrase\u00f1a", None))
+        self.logo_5.setText("")
         self.crearPregunta.setText(QCoreApplication.translate("MainWindow", u"Crear Pregunta", None))
         self.eliminarPregunta.setText(QCoreApplication.translate("MainWindow", u"Eliminar Pregunta", None))
         self.actualizarPregunta.setText(QCoreApplication.translate("MainWindow", u"Actualizar Pregunta", None))
@@ -863,9 +881,9 @@ class Ui_MainWindow(object):
         self.foto.setText("")
         self.enviar.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
         self.boton_volver.setText(QCoreApplication.translate("MainWindow", u"Volver", None))
+        self.respuestaLabel_2.setText(QCoreApplication.translate("MainWindow", u"Respuesta", None))
         self.groupBox_login_5.setTitle("")
         self.buttonVolver.setText(QCoreApplication.translate("MainWindow", u"Volver", None))
-        self.listarLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.groupBox_login_2.setTitle("")
         self.preguinta_label.setText(QCoreApplication.translate("MainWindow", u"Pregunta", None))
         self.respuestaLabel.setText(QCoreApplication.translate("MainWindow", u"Respuesta", None))
@@ -889,6 +907,5 @@ class Ui_MainWindow(object):
         self.buttonDificilAdmin.setText(QCoreApplication.translate("MainWindow", u"Dif\u00edcil", None))
         self.buttonGestion.setText(QCoreApplication.translate("MainWindow", u"Gesti\u00f3n", None))
         self.logo_2.setText("")
-        self.respuestaLabel_2.setText(QCoreApplication.translate("MainWindow", u"Respuesta", None))
     # retranslateUi
 

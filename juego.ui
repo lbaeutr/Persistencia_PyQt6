@@ -87,7 +87,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -1121,26 +1121,19 @@ QPushButton:hover {
         <string>Volver</string>
        </property>
       </widget>
-      <widget class="QLabel" name="listarLabel">
+      <widget class="QTextBrowser" name="listarBrowser">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>30</y>
-         <width>751</width>
-         <height>531</height>
+         <x>10</x>
+         <y>10</y>
+         <width>831</width>
+         <height>551</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">QLabel {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 5px;
+        <string notr="true">QTextBrowser {
     background: white;
-    font-size: 14px;
 }</string>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
        </property>
       </widget>
      </widget>
