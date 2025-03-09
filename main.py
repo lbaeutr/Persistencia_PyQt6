@@ -303,6 +303,22 @@ class SpaceRoom(QMainWindow):
                     "¡Respuesta correcta!",  # Mensaje
                     QMessageBox.StandardButton.Ok  # Botón "Aceptar"
                 )
+
+                # Registrar la puntuación en la BBDD
+                jugador_correo = self.input_correo.text().strip()  # Usamos el correo (nombre) para buscar el ID
+                self.cursor.execute("SELECT id FROM Jugador WHERE nombre = ?", (jugador_correo,))
+                jugador = self.cursor.fetchone()
+                if jugador:
+                    jugador_id = jugador[0]
+                    fecha_actual = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    # Insertamos la puntuación (por ejemplo, 10 puntos por respuesta correcta)
+                    self.cursor.execute(
+                        "INSERT INTO Puntuacion (jugador_id, puntuacion, fecha) VALUES (?, ?, ?)",
+                        (jugador_id, 10, fecha_actual)
+                    )
+                    self.conn.commit()
+
+            
             else:
                 self.show_error(f"Respuesta incorrecta. La respuesta correcta era: {respuesta_correcta['texto']}")
 
